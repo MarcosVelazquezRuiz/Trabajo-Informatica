@@ -1,12 +1,14 @@
 #include "ETSIDI.h"
 #include "freeglut.h"
 #include <iostream>
-#include "Mundo.h"
+#include "Coordinador.h"
+
+
 
 using namespace std;
-using namespace ETSIDI;
 
-Mundo mundo;
+Coordinador coordinador;
+
 
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
@@ -41,8 +43,10 @@ int main(int argc, char* argv[])
 	glutKeyboardFunc(OnKeyboardDown);
 	glutSpecialFunc(onSpecialKeyboardDown); //gestion de los cursores
 	glutKeyboardUpFunc(OnKeyboardUp);
+	
 	//Inicialización de la escena
-	mundo.inicializa();
+
+
 
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
@@ -60,7 +64,7 @@ void OnDraw(void)
 	glLoadIdentity();
 
 	
-	mundo.dibuja();
+	coordinador.Dibuja();
 	
 	
 
@@ -70,25 +74,30 @@ void OnDraw(void)
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
-	mundo.tecla(key);
+	
+	coordinador.Tecla(key);
+	
 
 	glutPostRedisplay();
 }
+
 void onSpecialKeyboardDown(int key, int x, int y)
 {
-	//mundo.teclaEspecial(key);
+	
 }
 
 void OnTimer(int value)
 {
 	//poner aqui el código de animacion
-	mundo.mueve();
+	
+	coordinador.Mueve();
 
 	//no borrar estas lineas
 	glutTimerFunc(25, OnTimer, 0);
 	glutPostRedisplay();
 }
-void OnKeyboardUp(unsigned char key, int x, int y) {
 
-	mundo.NoPresionoTecla(key);
+void OnKeyboardUp(unsigned char key, int x, int y) 
+{
+	coordinador.NoPresionoTecla(key);
 }
