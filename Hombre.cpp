@@ -10,7 +10,7 @@ Hombre::Hombre() {
 
 	sprite.setCenter(2, 2);
 	sprite.setSize(4, 4);
-
+	aceleracion.y = -9.8;
 }
 
 void Hombre::Dibuja()
@@ -18,7 +18,7 @@ void Hombre::Dibuja()
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0);
 	glColor3f(1.0f, 0.0f, 0.0f);
-//	glutSolidSphere(altura, 20, 20);
+//  glutSolidSphere(altura, 20, 20);
 	if (velocidad.x > 0.01)sprite.flip(false, false);
 	if (velocidad.x < -0.01)sprite.flip(true, false);
 	if ((velocidad.x < 0.01) && (velocidad.x > -0.01))
@@ -28,7 +28,6 @@ void Hombre::Dibuja()
 	sprite.draw();
 	glPopMatrix();
 
-	
 }
 
 
@@ -36,12 +35,14 @@ float Hombre::getAltura()
 {
 	return altura;
 }
+
 void Hombre::mueve(float t)
 {
 	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
 	velocidad = velocidad + aceleracion * t;
 	sprite.loop();
 }
+
 void Hombre::MovLateral(float VelocidadInicial) {
 
 	Vector2D vel = getVel();
@@ -50,6 +51,7 @@ void Hombre::MovLateral(float VelocidadInicial) {
 	setVel(VelocidadInicial, vel.y);
 
 }
+
 void Hombre::Salto(float altura) {
 	Vector2D acel = getAc();
 	Vector2D vel = getVel();
@@ -58,3 +60,4 @@ void Hombre::Salto(float altura) {
 	setVel(vel.x, altura);
 
 }
+

@@ -2,8 +2,11 @@
 #include "freeglut.h"
 #include "ColorRGB.h"
 
-Pared::Pared() {
-	
+Pared::Pared(float x1, float y1, float x2, float y2) {
+	limite1.x = x1;
+	limite1.y = y1;
+	limite2.x = x2;
+	limite2.y = y2;
 }
 
 void Pared::Dibuja()
@@ -14,21 +17,26 @@ void Pared::Dibuja()
 	glVertex3d(limite1.x, limite1.y, 1);
 	glVertex3d(limite2.x, limite2.y, 1);
 	glVertex3d(limite2.x, limite2.y, -1);
-	glVertex3d(limite1.x, limite1.y, -12);
+	glVertex3d(limite1.x, limite1.y, -1);
 	glEnd();
 	glEnable(GL_LIGHTING);
 }
+
+void Pared::Mueve(float t) {}
+
 void Pared::setColor(Byte r, Byte v, Byte a)
 {
 	color.set(r, v, a);
 }
-void Pared::setPos(float x1, float y1, float x2, float y2)
+
+void Pared::setPos(float lim1x, float lim1y, float lim2x, float lim2y)
 {
-	limite1.x = x1;
-	limite1.y = y1;
-	limite2.x = x2;
-	limite2.y = y2;
+	limite1.x = lim1x;
+	limite1.y = lim1y;
+	limite2.x = lim2x;
+	limite2.y = lim2y;
 }
+
 float Pared::distancia(Vector2D punto, Vector2D *direccion) {
 
 	Vector2D u = (punto - limite1);
