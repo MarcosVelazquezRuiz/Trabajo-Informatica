@@ -9,5 +9,4 @@ class Interaccion
 public:
 
 	static bool rebote(Hombre& h, Pared c);//Estan ya en la memoria
-
 };

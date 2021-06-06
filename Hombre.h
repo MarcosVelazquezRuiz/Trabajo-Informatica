@@ -21,6 +21,7 @@ public:
 	void MovLateral(float VelocidadInicial);
 	void Salto(float altura);
 
+
 private:
 	float altura;
 
