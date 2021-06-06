@@ -1,10 +1,23 @@
 #include "ETSIDI.h"
 #include "freeglut.h"
 #include <iostream>
+<<<<<<< Updated upstream
+#include "Coordinador.h"
 
-//#include "Mundo.h"
+
+
 using namespace std;
-//Mundo mundo;
+
+Coordinador coordinador;
+
+=======
+#include "Mundo.h"
+
+using namespace std;
+using namespace ETSIDI;
+
+Mundo mundo;
+>>>>>>> Stashed changes
 
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
@@ -13,6 +26,8 @@ void OnDraw(void); //esta funcion sera llamada para dibujar
 void OnTimer(int value); //esta funcion sera llamada cuando transcurra una temporizacion
 void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla	
 void onSpecialKeyboardDown(int key, int x, int y); //Tecla especial
+void OnKeyboardUp(unsigned char key, int x, int y);
+
 
 int main(int argc, char* argv[])
 {
@@ -36,9 +51,16 @@ int main(int argc, char* argv[])
 	glutTimerFunc(25, OnTimer, 0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	glutKeyboardFunc(OnKeyboardDown);
 	glutSpecialFunc(onSpecialKeyboardDown); //gestion de los cursores
-
+	glutKeyboardUpFunc(OnKeyboardUp);
+<<<<<<< Updated upstream
+	
 	//Inicialización de la escena
-	//mundo.inicializa();
+
+
+=======
+	//Inicialización de la escena
+	mundo.inicializa();
+>>>>>>> Stashed changes
 
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
@@ -55,32 +77,13 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	gluLookAt(10,10, 10,  // posicion del ojo
-		0, 0, 0,      // hacia que punto mira  (0,0,0) 
-		0.0, 0.0, 1.0);      // definimos hacia arriba (eje z) 
-	//mundo.dibuja();
-
-	if (ETSIDI::lanzaDado(10,1)>7) {
-		glColor3ub(0, 0, 255);
-		glutWireSphere(1, 10, 10);
-		Sleep(1000);
-		cout << "azul";
-	}
-	if (ETSIDI::lanzaDado(10, 1) < 2) {
-		glColor3ub(0, 255, 0);
-		glutWireSphere(1, 10, 10);
-		Sleep(1000);
-		cout << "verde";
-
-	}
-	if (ETSIDI::lanzaDado(10, 1) == 5) {
-		glColor3ub(255, 0, 0);
-		glutWireSphere(1, 10, 10);
-		Sleep(1000);
-		cout << "rojo";
-	}
-
-
+	
+<<<<<<< Updated upstream
+	coordinador.Dibuja();
+=======
+	mundo.dibuja();
+>>>>>>> Stashed changes
+	
 	
 
 	//no borrar esta linea ni poner nada despues
@@ -89,21 +92,44 @@ void OnDraw(void)
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
-	//mundo.tecla(key);
+<<<<<<< Updated upstream
+	
+	coordinador.Tecla(key);
+	
+=======
+	mundo.tecla(key);
+>>>>>>> Stashed changes
 
 	glutPostRedisplay();
 }
+
 void onSpecialKeyboardDown(int key, int x, int y)
 {
-	//mundo.teclaEspecial(key);
+	
 }
 
 void OnTimer(int value)
 {
 	//poner aqui el código de animacion
-	//mundo.mueve();
+<<<<<<< Updated upstream
+	
+	coordinador.Mueve();
+=======
+	mundo.mueve();
+>>>>>>> Stashed changes
 
 	//no borrar estas lineas
 	glutTimerFunc(25, OnTimer, 0);
 	glutPostRedisplay();
+}
+<<<<<<< Updated upstream
+
+void OnKeyboardUp(unsigned char key, int x, int y) 
+{
+	coordinador.NoPresionoTecla(key);
+=======
+void OnKeyboardUp(unsigned char key, int x, int y) {
+
+	mundo.NoPresionoTecla(key);
+>>>>>>> Stashed changes
 }
