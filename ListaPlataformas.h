@@ -3,6 +3,7 @@
 
 #include "Pared.h"
 #include "Hombre.h"
+#include "EnemigoBase.h"
 
 class ListaPlataformas {
 public:
@@ -12,7 +13,7 @@ public:
 	void Mueve(float t);
 	int getNum() { return numero; }
 	Pared* operator [](int i);
-	
+	bool rebote(EnemigoBase &e);
 	bool rebote(Hombre &h);
 private:
 	Pared* lista[MAX_PLATAFORMAS];

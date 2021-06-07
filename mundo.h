@@ -4,12 +4,16 @@
 #include "Interaccion.h"
 #include "ListaPlataformas.h"
 #include "PlatMoviles.h"
+#include "EnemigoBase.h"
 
 class  Mundo {
 public:
 
 	Hombre hombre;
-	
+	EnemigoBase enemigo;
+	EnemigoBase enemigo1;
+	EnemigoBase enemigo2;
+	EnemigoBase enemigo3;
 	//Pared paredtest;
 	//Pared plataforma;
 	ListaPlataformas plataformas;
@@ -39,4 +43,5 @@ private:
 	int nivel;
 	bool FinNivel;
 	bool muerte;
+
 };

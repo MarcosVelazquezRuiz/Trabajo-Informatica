@@ -1,4 +1,5 @@
 #pragma once
+
 class Vector2D
 {
 public:
@@ -6,7 +7,6 @@ public:
 //	virtual ~Vector2D();
 	float x;
 	float y;
-
 	Vector2D(float xv = 0.0f, float yv = 0.0f); // (1)constructor 
 	float modulo(); // (2) modulo del vector 
 	float argumento(); // (3) argumento del vector 
@@ -15,6 +15,5 @@ public:
 	Vector2D operator + (Vector2D); // (6) suma de vectores 
 	float operator *(Vector2D); // (7) producto escalar 
 	Vector2D operator *(float); // (8) producto por un escalar
-
 };
 
