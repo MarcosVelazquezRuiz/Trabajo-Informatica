@@ -1,7 +1,6 @@
 #include "ETSIDI.h"
 #include "freeglut.h"
 #include <iostream>
-<<<<<<< Updated upstream
 #include "Coordinador.h"
 
 
@@ -10,14 +9,6 @@ using namespace std;
 
 Coordinador coordinador;
 
-=======
-#include "Mundo.h"
-
-using namespace std;
-using namespace ETSIDI;
-
-Mundo mundo;
->>>>>>> Stashed changes
 
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
@@ -52,15 +43,10 @@ int main(int argc, char* argv[])
 	glutKeyboardFunc(OnKeyboardDown);
 	glutSpecialFunc(onSpecialKeyboardDown); //gestion de los cursores
 	glutKeyboardUpFunc(OnKeyboardUp);
-<<<<<<< Updated upstream
 	
 	//Inicialización de la escena
 
 
-=======
-	//Inicialización de la escena
-	mundo.inicializa();
->>>>>>> Stashed changes
 
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
@@ -78,11 +64,7 @@ void OnDraw(void)
 	glLoadIdentity();
 
 	
-<<<<<<< Updated upstream
 	coordinador.Dibuja();
-=======
-	mundo.dibuja();
->>>>>>> Stashed changes
 	
 	
 
@@ -92,13 +74,9 @@ void OnDraw(void)
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
-<<<<<<< Updated upstream
 	
 	coordinador.Tecla(key);
 	
-=======
-	mundo.tecla(key);
->>>>>>> Stashed changes
 
 	glutPostRedisplay();
 }
@@ -111,25 +89,15 @@ void onSpecialKeyboardDown(int key, int x, int y)
 void OnTimer(int value)
 {
 	//poner aqui el código de animacion
-<<<<<<< Updated upstream
 	
 	coordinador.Mueve();
-=======
-	mundo.mueve();
->>>>>>> Stashed changes
 
 	//no borrar estas lineas
 	glutTimerFunc(25, OnTimer, 0);
 	glutPostRedisplay();
 }
-<<<<<<< Updated upstream
 
 void OnKeyboardUp(unsigned char key, int x, int y) 
 {
 	coordinador.NoPresionoTecla(key);
-=======
-void OnKeyboardUp(unsigned char key, int x, int y) {
-
-	mundo.NoPresionoTecla(key);
->>>>>>> Stashed changes
 }
