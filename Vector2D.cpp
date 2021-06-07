@@ -57,6 +57,5 @@ Vector2D Vector2D::operator *(float factor) {		// (8) producto por un escalar
 	res.y = y * factor;
 	return res;
 }
-	
-	
+
 
