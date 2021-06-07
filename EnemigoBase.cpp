@@ -10,7 +10,8 @@ EnemigoBase::EnemigoBase() {
 	velocidad.y = 0.0f;
 	aceleracion.x = 0.0f;
 	aceleracion.y = -9.8f;
-	damage = 1; //El daï¿½o causado por defecto es 1
+	damage = 1; //El daño causado por defecto es 1
+	vida = 1; //La vida es 1 por defecto
 	radio = 1.0f;
 	color.r = 255; //El enemigo es blanco por defecto
 	color.g = 255;
