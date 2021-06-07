@@ -7,7 +7,7 @@ Hombre::Hombre() {
 
 	rojo = verde = azul = 255;
 	altura = 2;
-
+	vida = 3; //3 corazones de vida
 	sprite.setCenter(2, 2);
 	sprite.setSize(4, 4);
 	aceleracion.y = -9.8;
@@ -60,4 +60,5 @@ void Hombre::Salto(float altura) {
 	setVel(vel.x, altura);
 
 }
+
 
