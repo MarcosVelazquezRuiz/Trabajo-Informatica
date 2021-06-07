@@ -52,6 +52,15 @@ bool ListaPlataformas::rebote(Hombre &h)
 
 }
 
+bool ListaPlataformas::rebote(EnemigoBase &e) {
+
+	for (int i = 0; i < numero; i++) {
+		if (Interaccion::rebote(e, *(lista[i])))
+			return true;
+	}
+	return false;
+}
+
 void ListaPlataformas::Mueve(float t)
 {
 	for (int i = 0; i < numero; i++) {
