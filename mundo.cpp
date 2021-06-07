@@ -43,7 +43,10 @@ void Mundo::inicializa() {
 
 	hombre.setPos(0, 5);
 	hombre.setAc(0, -9.8);
-
+	enemigo.setPos(9.0f, 2.0f);
+	enemigo1.setPos(84.0f, 2.0f);
+	enemigo2.setPos(141.0f, 7.0f);
+	enemigo3.setPos(207.0f, 7.0f);
 
 	cargarNivel();
 }
@@ -60,6 +63,10 @@ void Mundo::dibuja() {
 
 	hombre.Dibuja();
 	plataformas.Dibuja();
+	enemigo.dibuja();
+	enemigo1.dibuja();
+	enemigo2.dibuja();
+	enemigo3.dibuja();
 	
 	glEnable(GL_TEXTURE_2D);
 	if (GetNivel() == 1) {
@@ -95,9 +102,28 @@ void Mundo::mueve() {
 
 	hombre.mueve(0.025f);
 	plataformas.rebote(hombre);
-
+	enemigo.mueve(0.025f);
+	enemigo1.mueve(0.025f);
+	enemigo2.mueve(0.025f);
+	enemigo3.mueve(0.025f);
 	plataformas.Mueve(0.001f);
+	plataformas.rebote(enemigo);
+	plataformas.rebote(enemigo1);
+	plataformas.rebote(enemigo2);
+	plataformas.rebote(enemigo3);
+	if (Interaccion::contacto(hombre, enemigo) == 0 || Interaccion::contacto(hombre, enemigo1) == 0) {
+		muerte = true;
+		eyex = 7;
+		nivel--;
+		cargarNivel();
+	}
 
+	if (Interaccion::contacto(hombre, enemigo2) == 0 || Interaccion::contacto(hombre, enemigo3) == 0) {
+		muerte = true;
+		eyex = 7;
+		nivel--;
+		cargarNivel();
+	}
 	//rotarOjo(); // Aqui veo que puedo usar una funcion dentro de otra
 
 	if (poshom.y < (-3)) {
