@@ -1,0 +1,5 @@
+C:\Users\NOELIA\source\repos\Nueva carpeta\JuegoComputatis\x64\Debug\JuegoComputatis.exe
+C:\Users\Markv\source\repos\juegoloco\bin\JuegoComputatis.pdb
+C:\Users\Markv\source\repos\juegoloco\x64\Debug\JuegoComputatis.exe
+C:\Users\Markv\source\repos\juegoloco\x64\Debug\JuegoComputatis.pdb
+C:\Users\NOELIA\source\repos\Trabajo\juegoloco4\x64\Debug\JuegoComputatis.exe
